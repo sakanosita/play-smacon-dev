@@ -7,7 +7,7 @@ function Solidity() {
       <Head>
         <title>Solidity</title>
       </Head>
-      <h1 class="text-5xl">Solidity</h1>
+      <h1 className="text-5xl">Solidity</h1>
       <h2>
         <Link href="/">
           <a>Back to home</a>

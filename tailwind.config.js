@@ -12,7 +12,6 @@ module.exports = {
   daisyui: {
     styled: true,
     themes: [
-      'dark',
       'retro',
       'forest',
       'synthwave'

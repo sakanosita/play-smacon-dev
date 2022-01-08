@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Link from 'next/link'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 
@@ -18,16 +19,18 @@ export default function Home() {
 
         <p className={styles.description}>
           playground of{' '}
-          <a href="https://www.smacon.dev" class="underline">www.smacon.dev</a>
+          <Link href="https://www.smacon.dev" className="underline">www.smacon.dev</Link>
         </p>
 
         <div className={styles.grid}>
-          <a href="/solidity" className={styles.card}>
-            <h2>Solidity &rarr;</h2>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+          <Link href="/solidity">
+            <a className={styles.card}>
+              <h2>Solidity &rarr;</h2>
+              <p>
+                Instantly deploy your Next.js site to a public URL with Vercel.
+              </p>
+            </a>
+          </Link>
 
           {/* <a
             href="/motoko" className={styles.card}
