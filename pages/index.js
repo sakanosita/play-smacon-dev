@@ -18,7 +18,7 @@ export default function Home() {
 
         <p className={styles.description}>
           playground of{' '}
-          <a href="https://nextjs.org" class="underline">www.smacon.dev</a>
+          <a href="https://www.smacon.dev" class="underline">www.smacon.dev</a>
         </p>
 
         <div className={styles.grid}>
@@ -29,14 +29,14 @@ export default function Home() {
             </p>
           </a>
 
-          <a
+          {/* <a
             href="/motoko" className={styles.card}
           >
             <h2>Motoko &rarr;</h2>
             <p>
               Instantly deploy your Next.js site to a public URL with Vercel.
             </p>
-          </a>
+          </a> */}
         </div>
       </main>
 
