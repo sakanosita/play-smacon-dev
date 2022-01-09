@@ -39,12 +39,6 @@ export default function Home() {
           >
             <h2>Rust &rarr;</h2>
           </a>
-
-          <a
-            href="/rust" className={styles.card}
-          >
-            <h2>smacon.dev &rarr;</h2>
-          </a>
         </div>
 
 
