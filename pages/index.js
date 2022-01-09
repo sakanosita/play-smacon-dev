@@ -22,23 +22,21 @@ export default function Home() {
         </p>
 
         <div className={styles.grid}>
-          <Link href="/solidity">
+          <Link href="/solidity/">
             <a className={styles.card}>
               <h2>Solidity &rarr;</h2>
             </a>
           </Link>
-
-          <a
-            href="/motoko" className={styles.card}
-          >
-            <h2>Motoko &rarr;</h2>
-          </a>
-          
-          <a
-            href="/rust" className={styles.card}
-          >
-            <h2>Rust &rarr;</h2>
-          </a>
+          <Link href="/motoko/">
+            <a className={styles.card}>
+              <h2>Motoko &rarr;</h2>
+            </a>
+          </Link>
+          <Link href="/rust/">
+            <a className={styles.card}>
+              <h2>Rust &rarr;</h2>
+            </a>
+          </Link>
         </div>
 
 

@@ -9,7 +9,6 @@ function Motoko() {
         <title>Motoko</title>
       </Head>
       <h1 className="text-5xl">Motoko</h1>
-
       <Link href="/">
         <a>Back to home</a>
       </Link>
