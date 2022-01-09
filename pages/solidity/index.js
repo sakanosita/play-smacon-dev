@@ -87,15 +87,15 @@ export default function Home() {
         <a>Back to home</a>
       </Link>
       <div>
-        <div class="card card-bordered">
-          <div class="card-body">
-            <h2 class="card-title">First Application
+        <div className="card card-bordered">
+          <div className="card-body">
+            <h2 className="card-title">First Application
             </h2> 
-            <div class="justify-end card-actions">
-              <button class="btn btn-secondary">inc</button>
+            <div className="justify-end card-actions">
+              <button className="btn btn-secondary">inc</button>
             </div>
-            <div class="justify-end card-actions">
-              <button class="btn btn-secondary">dec</button>
+            <div className="justify-end card-actions">
+              <button className="btn btn-secondary">dec</button>
             </div>
           </div>
         </div>
