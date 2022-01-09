@@ -1,6 +1,5 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
@@ -26,21 +25,29 @@ export default function Home() {
           <Link href="/solidity">
             <a className={styles.card}>
               <h2>Solidity &rarr;</h2>
-              <p>
-                Instantly deploy your Next.js site to a public URL with Vercel.
-              </p>
             </a>
           </Link>
 
-          {/* <a
+          <a
             href="/motoko" className={styles.card}
           >
             <h2>Motoko &rarr;</h2>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a> */}
+          </a>
+          
+          <a
+            href="/rust" className={styles.card}
+          >
+            <h2>Rust &rarr;</h2>
+          </a>
+
+          <a
+            href="/rust" className={styles.card}
+          >
+            <h2>smacon.dev &rarr;</h2>
+          </a>
         </div>
+
+
       </main>
 
       <footer className={styles.footer}>
