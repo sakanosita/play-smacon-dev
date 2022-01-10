@@ -4,6 +4,8 @@ import Layout from '../../components/layout'
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { ethers } from 'ethers'
+import ConnectHeader from '../../components/ConnectHeader'
+import getEthBalance from '../../utils/getEthBalance'
 
 let	provider;
 let	signer;
@@ -17,7 +19,7 @@ export default function Home() {
 		hasMetaMask: true,
 	});
 
-	const router = useRouter();
+	//const router = useRouter();
 
 	useEffect(() => {
 		
@@ -46,11 +48,12 @@ export default function Home() {
 
 		let network = await provider.getNetwork();
 
-		if (network.chainId == 1) {
-			router.push('/');
-			return;
-		} else if (network.chainId  != 4) {
-			window.alert('This website only supports Mainnet or Rinkeby testnet');
+		// if (network.chainId == 1) {
+		// 	router.push('/');
+		// 	return;
+		// } else if (network.chainId  != 4) {
+    if (network.chainId != 4) {
+      window.alert('This website only supports Mainnet or Rinkeby testnet');
 			return;
 		}
 		
@@ -91,6 +94,13 @@ export default function Home() {
           <div className="card-body">
             <h2 className="card-title">First Application
             </h2> 
+            <ConnectHeader
+              account={state.account}
+              connectButton={state.connectButton}
+              hasMetaMask={state.hasMetaMask}
+              connectMeta={connectMeta}
+            />
+            {state.ethBalance}
             <div className="justify-end card-actions">
               <button className="btn btn-secondary">inc</button>
             </div>
