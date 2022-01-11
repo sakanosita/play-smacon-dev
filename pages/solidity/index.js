@@ -1,29 +1,33 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import Layout from '../../components/layout'
+import { ethers } from 'ethers'
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
-import { ethers } from 'ethers'
-import ConnectHeader from '../../components/ConnectHeader'
 import getEthBalance from '../../utils/getEthBalance'
+import Layout from '../../components/layout'
+import ConnectHeader from '../../components/ConnectHeader'
 
 let	provider;
 let	signer;
 
 export default function Home() {
-
+  
 	const [state, setState] = useState({
 		account: null,
 		ethBalance: '-',
-		connectButton: false,
+		connectButton: true,
 		hasMetaMask: true,
 	});
-
 	//const router = useRouter();
 
 	useEffect(() => {
+		if (!window.ethereum) {
+			window.alert('You must install MetaMask to use this website');
+			setState({...state, hasMetaMask: false});
+			return;
+		}
 		
-    provider = new ethers.providers.Web3Provider(window.ethereum, "any");
+    	provider = new ethers.providers.Web3Provider(window.ethereum, "any");
 
 		if (sessionStorage["SandboxMetaAlreadyConnected"])
 			connectMeta();
@@ -35,7 +39,8 @@ export default function Home() {
 		});
 
 		window.ethereum.on('chainChanged', () => {
-			document.location.reload();
+			// document.location.reload();
+      connectMeta();
 		});
 
 	}, []);
@@ -52,8 +57,8 @@ export default function Home() {
 		// 	router.push('/');
 		// 	return;
 		// } else if (network.chainId  != 4) {
-    if (network.chainId != 4) {
-      window.alert('This website only supports Mainnet or Rinkeby testnet');
+		if (network.chainId != 4) {
+		  window.alert('This website only supports Mainnet or Rinkeby testnet');
 			return;
 		}
 		
