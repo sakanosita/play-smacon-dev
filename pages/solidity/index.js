@@ -169,13 +169,13 @@ export default function Home() {
               hasMetaMask={state.hasMetaMask}
               connectMeta={connectMeta}
             />
-            <div class="stat">
-              <div class="text-lg">{state.ethBalance}</div> 
+            <div className="stat">
+              <div className="text-lg">{state.ethBalance}</div> 
             </div>
             
-            <div class="w-full shadow stats">
-            <div class="stat">
-              <div class="stat-figure text-2xl">{state.contractState}</div> 
+            <div className="w-full shadow stats">
+            <div className="stat">
+              <div className="stat-figure text-2xl">{state.contractState}</div> 
             </div>
             </div>
             <Link href={"https://rinkeby.etherscan.io/address/" + contractAddress}>
