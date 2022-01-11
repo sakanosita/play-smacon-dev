@@ -157,30 +157,30 @@ export default function Home() {
       <Link href="/">
         <a>Back to home</a>
       </Link>
-      <div>
-        <div className="card card-bordered">
-          <div className="card-body">
-            <h2 className="card-title">First Application
-            </h2>
 
-            <ConnectHeader
+      <ConnectHeader
               account={state.account}
               connectButton={state.connectButton}
               hasMetaMask={state.hasMetaMask}
               connectMeta={connectMeta}
             />
-            <div className="stat">
-              <div className="text-lg">{state.ethBalance}</div> 
+      <div className="stat">
+        <div className="text-lg">{state.ethBalance}</div> 
+      </div>
+      <div>
+        <div className="card card-bordered">
+          <div className="card-body">
+            <h2 className="card-title">First Application</h2>
+            <div className="text-left">
+              <Link href="https://www.smacon.dev/first-app">
+                <a target="_blank">smacon.dev</a>
+              </Link>
             </div>
-            
             <div className="w-full shadow stats">
-            <div className="stat">
-              <div className="stat-figure text-2xl">{state.contractState}</div> 
+              <div className="stat">
+                <div className="stat-figure text-2xl">{state.contractState}</div> 
+              </div>
             </div>
-            </div>
-            <Link href={"https://rinkeby.etherscan.io/address/" + contractAddress}>
-              <a target="_blank">Etherscan</a>
-            </Link>
             <div className="justify-end card-actions">
               <button
                 onClick={clickGet} 
@@ -198,8 +198,11 @@ export default function Home() {
                 Dec
               </button>
             </div>
-            <div className="justify-end card-actions">
 
+            <div className="text-right">
+              <Link href={"https://rinkeby.etherscan.io/address/" + contractAddress}>
+                <a target="_blank">Etherscan</a>
+              </Link>
             </div>
           </div>
         </div>
