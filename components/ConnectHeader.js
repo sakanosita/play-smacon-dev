@@ -21,22 +21,22 @@ function ConnectHeader({account, connectButton, hasMetaMask, connectMeta}) {
 			{connectButton &&
 				(
           <div className="justify-end card-actions">
-					<button
-            className="btn btn-secondary"
-            onClick={connectMeta}>
+            <button
+              className="btn btn-secondary"
+              onClick={connectMeta}>
               <a href="#">Click to connect</a>
-          </button>
+            </button>
           </div>
 				)
 			}
 			{!hasMetaMask &&
 				(
           <div className="justify-end card-actions">
-					<button className="btn btn-secondary">
-						<a href="https://metamask.io/">
-							Install MetaMask
-						</a>
-					</button>
+            <button className="btn btn-secondary">
+              <a href="https://metamask.io/">
+                Install MetaMask
+              </a>
+            </button>
           </div>
 				)
 			}

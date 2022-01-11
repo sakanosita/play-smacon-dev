@@ -84,6 +84,9 @@ export default function Home() {
 		return;
 	}
 
+  async function clickInc(() => {
+    
+  }
   return (
     <Layout>
       <Head>
