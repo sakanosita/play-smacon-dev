@@ -9,6 +9,49 @@ import ConnectHeader from '../../components/ConnectHeader'
 
 let	provider;
 let	signer;
+const contractAddress = "0x1394FaF1D49f7F922c731B9154e61B57d8659bdE";
+const abi = [
+  {
+    "inputs": [],
+    "name": "count",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "dec",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "get",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "inc",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+]
 
 export default function Home() {
   
@@ -17,6 +60,7 @@ export default function Home() {
 		ethBalance: '-',
 		connectButton: true,
 		hasMetaMask: true,
+    contractState: '-',
 	});
 	//const router = useRouter();
 
@@ -83,10 +127,26 @@ export default function Home() {
 		});
 		return;
 	}
-
-  async function clickInc(() => {
-    
+  async function clickGet() {
+    let contract = new ethers.Contract(contractAddress, abi, provider);
+    let contractState = await contract.get();
+    setState({
+      ...state,
+      contractState: contractState.toNumber()
+    })
   }
+  async function clickInc() {
+    let contract = new ethers.Contract(contractAddress, abi, provider);
+    const contractSigner = contract.connect(signer);
+    let tx = await contractSigner.inc();
+
+  }
+  async function clickDec() {
+    let contract = new ethers.Contract(contractAddress, abi, provider);
+    const contractSigner = contract.connect(signer);
+    let tx = await contractSigner.dec();
+  }
+
   return (
     <Layout>
       <Head>
@@ -101,19 +161,45 @@ export default function Home() {
         <div className="card card-bordered">
           <div className="card-body">
             <h2 className="card-title">First Application
-            </h2> 
+            </h2>
+
             <ConnectHeader
               account={state.account}
               connectButton={state.connectButton}
               hasMetaMask={state.hasMetaMask}
               connectMeta={connectMeta}
             />
-            {state.ethBalance}
+            <div class="stat">
+              <div class="text-lg">{state.ethBalance}</div> 
+            </div>
+            
+            <div class="w-full shadow stats">
+            <div class="stat">
+              <div class="stat-figure text-2xl">{state.contractState}</div> 
+            </div>
+            </div>
+            <Link href={"https://rinkeby.etherscan.io/address/" + contractAddress}>
+              <a target="_blank">Etherscan</a>
+            </Link>
             <div className="justify-end card-actions">
-              <button className="btn btn-secondary">inc</button>
+              <button
+                onClick={clickGet} 
+                className="btn btn-secondary">
+                Get
+              </button>
+              <button
+                onClick={clickInc} 
+                className="btn btn-secondary">
+                Inc
+              </button>
+              <button
+                onClick={clickDec}
+                className="btn btn-secondary">
+                Dec
+              </button>
             </div>
             <div className="justify-end card-actions">
-              <button className="btn btn-secondary">dec</button>
+
             </div>
           </div>
         </div>

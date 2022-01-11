@@ -9,7 +9,7 @@ function prettyEth(ethString) {
         num = num.replace(/(\d)(?=(\d{3})+$)/g, '$1,');
 
     if (decimals.length > 5)
-        prettyString = num + '.' + decimals.slice(0,5) + "... ETH";
+        prettyString = num + '.' + decimals.slice(0,3) + "... ETH";
     else
         prettyString = num + '.' + decimals + " ETH";
 
