@@ -154,17 +154,13 @@ export default function Home() {
       </Head>
       <h1 className="text-5xl">Solidity</h1>
 
-      <Link href="/">
-        <a>Back to home</a>
-      </Link>
-
-      <ConnectHeader
-              account={state.account}
-              connectButton={state.connectButton}
-              hasMetaMask={state.hasMetaMask}
-              connectMeta={connectMeta}
-            />
-      <div className="stat">
+      <div className="text-right">
+        <ConnectHeader
+                account={state.account}
+                connectButton={state.connectButton}
+                hasMetaMask={state.hasMetaMask}
+                connectMeta={connectMeta}
+              />
         <div className="text-lg">{state.ethBalance}</div> 
       </div>
       <div>
@@ -205,6 +201,11 @@ export default function Home() {
               </Link>
             </div>
           </div>
+        </div>
+        <div className="text-right">
+          <Link href="/">
+            <a>Back to home</a>
+          </Link>
         </div>
       </div>
     </Layout>
