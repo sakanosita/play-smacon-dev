@@ -58,7 +58,7 @@ export default function Home() {
 	const [state, setState] = useState({
 		account: null,
 		ethBalance: '-',
-		connectButton: true,
+		connectButton: false,
 		hasMetaMask: true,
     contractState: '-',
 	});
